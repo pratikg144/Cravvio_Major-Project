@@ -12,9 +12,9 @@ import logoutIcon from "./images/logout.png";
 
 import pastaImg from "./images/red_Sauce_PASTA.jpg";
 import burgerImg from "./images/cheese_Burger.jpg";
-import pizzaImg from "./images/pizza_Photo.jpg";
+import pizzaImg from "./images/Pizza_Photo.jpg";
 import saladImg from "./images/Greek_Salad.jpg";
-import curryImg from "./images/indian_Curry.jpg";
+import curryImg from "./images/Indian_Curry.jpg";
 import chickenTikkaImg from "./images/chicken_Tikka.jpg";
 import paneerImg from "./images/paneer_Butter_Masala.jpg";
 import biryaniImg from "./images/veg_biryani.jpg";
