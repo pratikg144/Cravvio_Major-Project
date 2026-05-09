@@ -11,7 +11,7 @@
 //   useEffect(() => {
 //     const interval = setInterval(() => {
 //       axios
-//         .get(`http://localhost:3000/api/payment/tracking/${id}`)
+//         .get(`https://cravvio-major-project.onrender.com/api/payment/tracking/${id}`)
 //         .then((res) => setOrder(res.data))
 //         .catch((err) => console.error(err));
 //     }, 3000);
@@ -150,7 +150,7 @@ export default function OrderTracking() {
   useEffect(() => {
     const interval = setInterval(() => {
       axios
-        .get(`http://localhost:3000/api/payment/tracking/${id}`)
+        .get(`https://cravvio-major-project.onrender.com/api/payment/tracking/${id}`)
         .then((res) => setOrder(res.data))
         .catch((err) => console.error(err));
     }, 3000);

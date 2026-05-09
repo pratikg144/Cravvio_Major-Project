@@ -16,7 +16,7 @@ const ReviewPage = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:3000/api/user/admin/vendors?status=pending",
+        "https://cravvio-major-project.onrender.com/api/user/admin/vendors?status=pending",
         { withCredentials: true }
       );
       setVendors(response.data.vendors || []);
@@ -35,7 +35,7 @@ const ReviewPage = () => {
   const approveVendor = async (vendorId) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/user/admin/vendors/${vendorId}/status`,
+        `https://cravvio-major-project.onrender.com/api/user/admin/vendors/${vendorId}/status`,
         { status: "approved" },
         { withCredentials: true }
       );
@@ -49,7 +49,7 @@ const ReviewPage = () => {
   const rejectVendor = async (vendorId) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/user/admin/vendors/${vendorId}/status`,
+        `https://cravvio-major-project.onrender.com/api/user/admin/vendors/${vendorId}/status`,
         { status: "rejected" },
         { withCredentials: true }
       );

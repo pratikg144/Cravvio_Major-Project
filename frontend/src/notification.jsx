@@ -17,7 +17,7 @@ const NotificationsPage = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:3000/api/user/notifications?type=${filter}&limit=20`,
+        `https://cravvio-major-project.onrender.com/api/user/notifications?type=${filter}&limit=20`,
         { withCredentials: true }
       );
       setNotifications(response.data.notifications || []);

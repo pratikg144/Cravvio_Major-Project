@@ -21,11 +21,11 @@ export default function ViewPage() {
     try {
       setLoading(true);
       const [usersRes, vendorsRes] = await Promise.all([
-        axios.get(`http://localhost:3000/api/user/admin/users?page=${userPage}&search=${userSearch}`, {
+        axios.get(`https://cravvio-major-project.onrender.com/api/user/admin/users?page=${userPage}&search=${userSearch}`, {
           withCredentials: true,
         }),
         axios.get(
-          `http://localhost:3000/api/user/admin/vendors?page=${vendorPage}&search=${vendorSearch}`,
+          `https://cravvio-major-project.onrender.com/api/user/admin/vendors?page=${vendorPage}&search=${vendorSearch}`,
           { withCredentials: true }
         ),
       ]);

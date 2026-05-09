@@ -16,7 +16,7 @@ const FullReportPage = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:3000/api/user/admin/dashboard/stats",
+        "https://cravvio-major-project.onrender.com/api/user/admin/dashboard/stats",
         { withCredentials: true }
       );
       setStats(response.data.statistics);
