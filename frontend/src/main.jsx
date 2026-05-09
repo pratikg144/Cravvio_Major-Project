@@ -9,18 +9,18 @@ import User from "./user";
 import PaymentSimple from "./PaymentSimplest";
 import "./index.css";
 import Login from "./login";
-import Usermenu from "./Usermenu";
+import Menu from "./menu";
 import Payments from "./Payments";
 import ForgotPassword from "./ForgotPassword";
-import ResetPassword from "./ResetPassword"; 
+import ResetPassword from "./ResetPassword";
 import NotificationsPage from "./notification";
 import ViewPage from "./ViewPage";
 import SettingsPage from "./SettingsPage";
 import ReviewPage from "./ReviewPage";
 import FullReportPage from "./FullReportPage";
-import Register from "./register";  
+import Register from "./register";
 import AdminStats from "./AdminStats";
-import AdminUsers from "./AdminUsers"; 
+import AdminUsers from "./AdminUsers";
 import AdminOrders from "./AdminOrders";
 import AdminPayments from "./AdminPayments";
 import AdminSubscriptions from "./AdminSubscriptions";
@@ -44,24 +44,24 @@ root.render(
         <Route path="/vendor" element={<Vendor />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/user" element={<User />} />
-        <Route path="/usermenu" element={<Usermenu />} />
+        <Route path="/usermenu" element={<Menu />} />
         <Route path="/admin-users" element={<AdminUsers />} />
         <Route path="/admin-orders" element={<AdminOrders />} />
         <Route path="/support-requests" element={<SupportRequests />} />
         <Route path="/support" element={<UserSupport />} />
         <Route path="/vendor-support" element={<VendorSupport />} />
-        
-        
+
+
         <Route path="/admin-stats" element={<AdminStats />} />
         <Route path="/admin-payments" element={<AdminPayments />} />
         <Route path="/admin-subscriptions" element={<AdminSubscriptions />} />
-        
-       
+
+
         <Route path="/addfood" element={<AddFood />} />
         <Route path="/vendor-menu" element={<VendorMenu />} />
-       <Route path="/payment-simple" element={<PaymentSimple />} />
+        <Route path="/payment-simple" element={<PaymentSimple />} />
 
-       
+
         <Route path="/payments" element={<Payments />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
