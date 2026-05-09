@@ -9,7 +9,7 @@ import User from "./user";
 import PaymentSimple from "./PaymentSimplest";
 import "./index.css";
 import Login from "./login";
-import Usermenu from "./usermenu";
+import Usermenu from "./Usermenu";
 import Payments from "./Payments";
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword"; 
