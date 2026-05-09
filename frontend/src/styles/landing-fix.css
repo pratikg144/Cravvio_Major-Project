@@ -1,0 +1,80 @@
+/* ------------------------------------------------------ */
+/*   CRAVVIO LANDING PAGE — SPACING FIXES (React Version) */
+/* ------------------------------------------------------ */
+
+.cravvio-wrapper {
+  /* prevent global styles from leaking in */
+  line-height: normal;
+}
+
+/* ---------------- HEADER FIXES ---------------- */
+
+.cravvio-wrapper .header {
+  height: 8.6rem;              /* slightly reduced (original ~8–9rem) */
+  padding: 0 3.2rem !important;
+}
+
+.cravvio-wrapper .main-nav-list {
+  gap: 3.6rem !important;      /* fix spacing between navbar links */
+}
+
+.cravvio-wrapper .cravvio_heading {
+  margin-right: 2rem;          /* fixes spacing between logo & menu */
+}
+
+
+/* ---------------- TESTIMONIALS FIXES ---------------- */
+
+.cravvio-wrapper .section-testimonials {
+  padding: 6rem 0 !important;  /* reduce extra vertical spacing */
+}
+
+.cravvio-wrapper .testimonials-container {
+  padding: 6rem 4rem !important;
+}
+
+.cravvio-wrapper .testimonials {
+  row-gap: 3.2rem !important;  /* tighten grid spacing */
+  column-gap: 4rem !important;
+}
+
+.cravvio-wrapper .testimonial-text {
+  margin-bottom: 1rem !important;
+}
+
+.cravvio-wrapper .gallery {
+  gap: 1rem !important;        /* restore original gallery spacing */
+  padding: 1rem !important;
+}
+
+
+/* ---------------- FOOTER FIXES ---------------- */
+
+.cravvio-wrapper .footer {
+  padding: 6rem 0 !important; /* original HTML was not as tall */
+}
+
+.cravvio-wrapper .grid--footer {
+  row-gap: 3rem !important;
+  column-gap: 3rem !important;
+}
+
+.cravvio-wrapper .footer-heading {
+  margin-bottom: 2rem !important;
+}
+
+.cravvio-wrapper .copyright {
+  margin-top: 2rem !important;
+}
+
+
+/* ---------------- UNIVERSAL SECTION SPACING ---------------- */
+
+.cravvio-wrapper section {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+}
+
+.cravvio-wrapper .heading-secondary {
+  margin-bottom: 4rem !important;
+}

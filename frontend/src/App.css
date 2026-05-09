@@ -1,0 +1,141 @@
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #e8fbc4, #c7f291, #a7e05a, #c7f291);
+  background-size: 400% 400%;
+  animation: gradientShift 16s ease infinite;
+  overflow-x: hidden;
+}
+
+
+
+.animate-gradientShift {
+  background-size: 400% 400%;
+  animation: gradientShift 16s ease infinite;
+}
+
+/* ✨ Floating Ambient Glow */
+.ambient-glow {
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 130%;
+  height: 140%;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.25), transparent 70%);
+  animation: floatGlow 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes floatGlow {
+  0% { transform: translate(0,0) scale(1); opacity: 0.4; }
+  50% { transform: translate(15px,10px) scale(1.05); opacity: 0.6; }
+  100% { transform: translate(-10px,-10px) scale(1); opacity: 0.4; }
+}
+
+
+/* 🟢 Spotlight Follows Mouse */
+.spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 200px at var(--x, 50%) var(--y, 50%), 
+    rgba(255, 255, 255, 0.4), 
+    transparent 70%
+  );
+  mix-blend-mode: overlay;
+  transition: background 0.15s ease-out;
+  z-index: 10;
+}
+/* ✴️ Header Shine Effect — Diagonal Motion */
+
+.shine {
+  position: absolute;
+  top: -50%;          /* start slightly above */
+  left: -75%;         /* start slightly to the left */
+  width: 50%;
+  height: 200%;       /* taller to cover diagonal motion */
+  background: linear-gradient(
+  130deg,
+  rgba(255, 255, 255, 0.2),
+  rgba(247, 247, 19, 0.6),
+  rgba(246, 36, 36, 0.6),
+  rgba(250, 93, 206, 0.6),
+  rgba(143, 59, 232, 0.6)
+);
+
+  background-size: 200% 200%;
+  animation: diagonalShine 4s linear infinite;
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* 🌀 Shine slides diagonally from top-left to bottom-right */
+@keyframes diagonalShine {
+  0% {
+    top: -50%;
+    left: -75%;
+  }
+  50% {
+    top: 50%;
+    left: 125%;
+  }
+  100% {
+    top: 50%;
+    left: 125%;
+  }
+}
+
+
+/* Main box */
+.pay-box {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: 20px;
+}
+
+.pay-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 80px rgba(106,162,0,0.35);
+}
+
+/* login-theme green buttons */
+.green-btn {
+  background: linear-gradient(135deg, #6AA200 0%, #4E7A00 100%);
+}
+
+/* Admin dashboard refinements */
+.admin-background {
+  background: radial-gradient(circle at top left, rgba(16, 185, 129, 0.12), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(14, 116, 144, 0.12), transparent 22%),
+    linear-gradient(180deg, #f8fafc 0%, #f8fafc 42%, #ecfdf5 100%);
+}
+
+.admin-pill-btn {
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.admin-pill-btn:hover {
+  transform: translateY(-1px);
+}
+
+.admin-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 768px) {
+  .admin-card {
+    border-radius: 1.5rem;
+  }
+}
