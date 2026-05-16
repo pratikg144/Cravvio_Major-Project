@@ -14,6 +14,7 @@ const chatbotRoutes = require('./routes/chatbot.routes');
 const cors = require('cors');
 
 const app = express();
+const mongoose = require('mongoose');
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -70,6 +71,13 @@ app.get('/', (req, res) => {
     return res.sendFile(path.join(frontendDist, 'index.html'));
   }
   return res.send('Hello World!');
+});
+
+// Simple health check (reports DB connection state)
+app.get('/health', (req, res) => {
+  const states = ['disconnected', 'connected', 'connecting', 'disconnecting'];
+  const state = mongoose.connection && mongoose.connection.readyState != null ? mongoose.connection.readyState : 0;
+  return res.json({ ok: state === 1, state: states[state] || state });
 });
 
 app.use((req, res) => {

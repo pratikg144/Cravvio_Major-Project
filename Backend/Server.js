@@ -4,8 +4,8 @@ require('dotenv').config();
 const app = require('./src/app');
 const connectDB = require('./src/db/db');
 
-// Ensure a MongoDB URI is provided in production; fail fast if missing
-if (!process.env.MONGODB_URI) {
+// In production we require MONGODB_URI to be set; locally allow a sensible default
+if (process.env.NODE_ENV === 'production' && !process.env.MONGODB_URI) {
     console.error('FATAL: MONGODB_URI environment variable is not set. Exiting.');
     process.exit(1);
 }
