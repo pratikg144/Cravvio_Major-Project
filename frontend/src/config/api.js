@@ -1,6 +1,16 @@
 import axios from 'axios';
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || (typeof window !== 'undefined' ? window.location.origin : 'https://cravvio-major-project.onrender.com');
+const BACKEND_FALLBACK_URL = 'https://cravvio-major-project.onrender.com';
+
+export const API_BASE_URL = import.meta.env.VITE_API_URL || (
+  typeof window !== 'undefined' && window.location.hostname === 'localhost'
+    ? window.location.origin
+    : BACKEND_FALLBACK_URL
+);
+
+if (typeof window !== 'undefined' && !import.meta.env.VITE_API_URL) {
+  console.log('[api] using default backend URL:', API_BASE_URL);
+}
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
