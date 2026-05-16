@@ -1,6 +1,14 @@
-const app=require('./src/app');
-const connectDB=require('./src/db/db');
+// Load env first so modules that read process.env get values
 require('dotenv').config();
+
+const app = require('./src/app');
+const connectDB = require('./src/db/db');
+
+// Ensure a MongoDB URI is provided in production; fail fast if missing
+if (!process.env.MONGODB_URI) {
+    console.error('FATAL: MONGODB_URI environment variable is not set. Exiting.');
+    process.exit(1);
+}
 
 connectDB();
 

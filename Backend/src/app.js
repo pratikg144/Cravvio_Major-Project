@@ -17,22 +17,32 @@ const app = express();
 
 app.use(cors({
   origin: function (origin, callback) {
-    const allowedOrigins = [
+    const defaultLocal = [
       'http://localhost:5173',
       'http://localhost:5174',
-      'http://localhost:5175',
-      process.env.FRONTEND_URL
-    ].filter(Boolean);
-    
+      'http://localhost:5175'
+    ];
+    const envOrigins = (process.env.ALLOWED_ORIGINS || '')
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
+    const allowedOrigins = defaultLocal.concat(envOrigins);
+
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
-    
-    // Allow any Vercel deployment dynamically
-    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+
+    // Allow if explicitly configured
+    if (allowedOrigins.indexOf(origin) !== -1) return callback(null, true);
+
+    // Allow common hosting domains (Vercel, Render). Keep this permissive only for known hosts.
+    if (origin.endsWith('.vercel.app') || origin.endsWith('.onrender.com') || origin.includes('render.com')) {
+      return callback(null, true);
     }
+
+    // Allow a single FRONTEND_URL env var as fallback
+    if (process.env.FRONTEND_URL && origin === process.env.FRONTEND_URL) return callback(null, true);
+
+    return callback(new Error('Not allowed by CORS'));
   },
   credentials: true
 }));
