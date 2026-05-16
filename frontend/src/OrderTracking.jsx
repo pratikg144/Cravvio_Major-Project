@@ -115,7 +115,7 @@ import L from "leaflet";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { apiClient } from './config/api';
 
 // 🔥 Custom delivery icon (bike style)
 // const deliveryIcon = new L.Icon({
@@ -149,8 +149,8 @@ export default function OrderTracking() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      axios
-        .get(`https://cravvio-major-project.onrender.com/api/payment/tracking/${id}`)
+      apiClient
+        .get(`/api/payment/tracking/${id}`)
         .then((res) => setOrder(res.data))
         .catch((err) => console.error(err));
     }, 3000);

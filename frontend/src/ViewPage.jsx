@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { apiClient } from './config/api';
 
 export default function ViewPage() {
   const navigate = useNavigate();
@@ -21,13 +21,8 @@ export default function ViewPage() {
     try {
       setLoading(true);
       const [usersRes, vendorsRes] = await Promise.all([
-        axios.get(`https://cravvio-major-project.onrender.com/api/user/admin/users?page=${userPage}&search=${userSearch}`, {
-          withCredentials: true,
-        }),
-        axios.get(
-          `https://cravvio-major-project.onrender.com/api/user/admin/vendors?page=${vendorPage}&search=${vendorSearch}`,
-          { withCredentials: true }
-        ),
+        apiClient.get(`/api/user/admin/users?page=${userPage}&search=${userSearch}`),
+        apiClient.get(`/api/user/admin/vendors?page=${vendorPage}&search=${vendorSearch}`),
       ]);
 
       setUsers(usersRes.data.users || []);

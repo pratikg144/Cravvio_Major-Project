@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { apiClient } from './config/api';
 
 const ReviewPage = () => {
   const navigate = useNavigate();
@@ -15,10 +15,7 @@ const ReviewPage = () => {
   const fetchPendingVendors = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        "https://cravvio-major-project.onrender.com/api/user/admin/vendors?status=pending",
-        { withCredentials: true }
-      );
+      const response = await apiClient.get('/api/user/admin/vendors?status=pending');
       setVendors(response.data.vendors || []);
       setError(null);
     } catch (err) {
@@ -34,11 +31,7 @@ const ReviewPage = () => {
 
   const approveVendor = async (vendorId) => {
     try {
-      await axios.put(
-        `https://cravvio-major-project.onrender.com/api/user/admin/vendors/${vendorId}/status`,
-        { status: "approved" },
-        { withCredentials: true }
-      );
+      await apiClient.put(`/api/user/admin/vendors/${vendorId}/status`, { status: "approved" });
       alert("Vendor approved!");
       fetchPendingVendors();
     } catch (err) {
@@ -48,11 +41,7 @@ const ReviewPage = () => {
 
   const rejectVendor = async (vendorId) => {
     try {
-      await axios.put(
-        `https://cravvio-major-project.onrender.com/api/user/admin/vendors/${vendorId}/status`,
-        { status: "rejected" },
-        { withCredentials: true }
-      );
+      await apiClient.put(`/api/user/admin/vendors/${vendorId}/status`, { status: "rejected" });
       alert("Vendor rejected!");
       fetchPendingVendors();
     } catch (err) {

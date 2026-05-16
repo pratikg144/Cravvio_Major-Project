@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { apiClient } from './config/api';
 
 const FullReportPage = () => {
   const navigate = useNavigate();
@@ -15,10 +15,7 @@ const FullReportPage = () => {
   const fetchDashboardStats = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        "https://cravvio-major-project.onrender.com/api/user/admin/dashboard/stats",
-        { withCredentials: true }
-      );
+      const response = await apiClient.get('/api/user/admin/dashboard/stats');
       setStats(response.data.statistics);
       setError(null);
     } catch (err) {

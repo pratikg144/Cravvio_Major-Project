@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { apiClient } from './config/api';
 
 const NotificationsPage = () => {
   const navigate = useNavigate();
@@ -16,10 +16,7 @@ const NotificationsPage = () => {
   const fetchNotifications = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        `https://cravvio-major-project.onrender.com/api/user/notifications?type=${filter}&limit=20`,
-        { withCredentials: true }
-      );
+      const response = await apiClient.get(`/api/user/notifications?type=${filter}&limit=20`);
       setNotifications(response.data.notifications || []);
       setError(null);
     } catch (err) {

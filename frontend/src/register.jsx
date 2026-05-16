@@ -47,15 +47,13 @@ export default function Register() {
     }
 
     try {
-      const response = await axios.post(`https://cravvio-major-project.onrender.com/api/auth/${currentUserType.toLowerCase()}/register`, {
+      const response = await apiClient.post(`/api/auth/${currentUserType.toLowerCase()}/register`, {
         username,
         email,
         phone,
         address,
         pincode,
         password
-      }, {
-        withCredentials: true
       });
 
       console.log(response.data);
